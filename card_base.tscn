@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://d2yhp68u6ddij"]
+[gd_scene load_steps=4 format=3 uid="uid://d2yhp68u6ddij"]
 
 [ext_resource type="Script" path="res://card_base.gd" id="1_u2ocq"]
 [ext_resource type="Texture2D" uid="uid://cbuvets731vhv" path="res://Assets/Cards/Frames/default.png" id="2_prv66"]
+
+[sub_resource type="SystemFont" id="SystemFont_8tkc8"]
 
 [node name="CardBase" type="MarginContainer"]
 offset_right = 250.0
@@ -9,6 +11,38 @@ offset_bottom = 350.0
 pivot_offset = Vector2(125, 175)
 script = ExtResource("1_u2ocq")
 
+[node name="Card" type="Sprite2D" parent="."]
+
 [node name="CardFrame" type="Sprite2D" parent="."]
+scale = Vector2(0.72093, 0.72093)
 texture = ExtResource("2_prv66")
 centered = false
+
+[node name="Bars" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="TopMargin" type="MarginContainer" parent="Bars"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="TopBar" type="HBoxContainer" parent="Bars"]
+layout_mode = 2
+
+[node name="LeftMargin" type="MarginContainer" parent="Bars/TopBar"]
+custom_minimum_size = Vector2(35, 0)
+layout_mode = 2
+
+[node name="Name" type="MarginContainer" parent="Bars/TopBar"]
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="Bars/TopBar/Name"]
+layout_mode = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="Bars/TopBar/Name"]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="Bars/TopBar/Name/CenterContainer"]
+layout_mode = 2
+theme_override_fonts/font = SubResource("SystemFont_8tkc8")
+theme_override_font_sizes/font_size = 14
+text = "Goblin Ambusher"
