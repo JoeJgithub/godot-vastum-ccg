@@ -1,0 +1,32 @@
+[
+	{
+		"id": 0,
+		"name": "Goblin Ambusher",
+		"type": 2,
+		"subtypes": [1],
+		"power": 2,
+		"health": 2,
+		"cost": 3,
+		"modifiers": [1, 3],
+	},
+	{
+		"id": 1,
+		"name": "Militiaman",
+		"type": 1,
+		"subtypes": [2],
+		"power": 1,
+		"health": 3,
+		"cost": 2,
+		"modifiers": [],
+	},
+	{
+		"id": 2,
+		"name": "Blue Dragon",
+		"type": 3,
+		"subtypes": [3],
+		"power": 4,
+		"health": 2,
+		"cost": 3,
+		"modifiers": [2],
+	}
+]
