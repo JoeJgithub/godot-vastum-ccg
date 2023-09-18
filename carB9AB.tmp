@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cbuvets731vhv" path="res://Assets/Cards/Frames/default.png" id="2_prv66"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c51mt"]
-bg_color = Color(0, 0, 0, 0.588235)
+bg_color = Color(0, 0, 0, 0.392157)
 corner_radius_top_left = 3
 corner_radius_top_right = 3
 corner_radius_bottom_right = 3
@@ -21,7 +21,6 @@ pivot_offset = Vector2(125, 175)
 script = ExtResource("1_u2ocq")
 
 [node name="Card" type="Sprite2D" parent="."]
-centered = false
 
 [node name="CardFrame" type="Sprite2D" parent="."]
 scale = Vector2(0.723837, 0.723837)
