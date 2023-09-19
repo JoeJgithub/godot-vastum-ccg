@@ -2,7 +2,7 @@ extends MarginContainer
 
 
 @onready var card_database = preload("res://Singletons/card_database.gd").new()
-@onready var card = card_database.Card.keys()[card_database.Card.GoblinAmbusher]
+var card = "GoblinAmbusher" # card_database.Card.keys()[card_database.Card.GoblinAmbusher]
 @onready var card_data = card_database.cards_data[card]
 @onready var card_image_path = "res://Assets/Cards/Art/%s-Rounded.png" % card
 
