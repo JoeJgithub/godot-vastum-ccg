@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://d2yhp68u6ddij"]
 
-[ext_resource type="Script" path="res://card_base.gd" id="1_u2ocq"]
-[ext_resource type="Texture2D" uid="uid://cbuvets731vhv" path="res://Assets/Cards/Frames/default.png" id="2_prv66"]
+[ext_resource type="Script" path="res://Cards/card_base.gd" id="1_dvbld"]
+[ext_resource type="Texture2D" uid="uid://cbuvets731vhv" path="res://Assets/Cards/Frames/default.png" id="2_7ow2n"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c51mt"]
 bg_color = Color(0, 0, 0, 0.588235)
@@ -18,14 +18,14 @@ expand_margin_right = 4.0
 offset_right = 250.0
 offset_bottom = 350.0
 pivot_offset = Vector2(125, 175)
-script = ExtResource("1_u2ocq")
+script = ExtResource("1_dvbld")
 
 [node name="Card" type="Sprite2D" parent="."]
 centered = false
 
 [node name="CardFrame" type="Sprite2D" parent="."]
 scale = Vector2(0.723837, 0.723837)
-texture = ExtResource("2_prv66")
+texture = ExtResource("2_7ow2n")
 centered = false
 
 [node name="Bars" type="VBoxContainer" parent="."]

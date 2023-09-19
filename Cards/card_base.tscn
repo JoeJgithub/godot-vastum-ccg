@@ -1,0 +1,171 @@
+[gd_scene load_steps=5 format=3 uid="uid://d2yhp68u6ddij"]
+
+[ext_resource type="Script" path="res://Cards/card_base.gd" id="1_dvbld"]
+[ext_resource type="Texture2D" uid="uid://cbuvets731vhv" path="res://Assets/Cards/Frames/default.png" id="2_7ow2n"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c51mt"]
+bg_color = Color(0, 0, 0, 0.588235)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+expand_margin_left = 4.0
+expand_margin_right = 4.0
+
+[sub_resource type="SystemFont" id="SystemFont_8tkc8"]
+
+[node name="CardBase" type="MarginContainer"]
+offset_right = 250.0
+offset_bottom = 350.0
+pivot_offset = Vector2(125, 175)
+script = ExtResource("1_dvbld")
+
+[node name="Card" type="Sprite2D" parent="."]
+centered = false
+
+[node name="CardFrame" type="Sprite2D" parent="."]
+scale = Vector2(0.723837, 0.723837)
+texture = ExtResource("2_7ow2n")
+centered = false
+
+[node name="Bars" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="TopVMargin" type="MarginContainer" parent="Bars"]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+
+[node name="TopBar" type="HBoxContainer" parent="Bars"]
+layout_mode = 2
+
+[node name="LeftHMargin" type="MarginContainer" parent="Bars/TopBar"]
+custom_minimum_size = Vector2(35, 0)
+layout_mode = 2
+
+[node name="Name" type="MarginContainer" parent="Bars/TopBar"]
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="Bars/TopBar/Name"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_c51mt")
+
+[node name="CenterContainer" type="CenterContainer" parent="Bars/TopBar/Name"]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="Bars/TopBar/Name/CenterContainer"]
+layout_mode = 2
+theme_override_fonts/font = SubResource("SystemFont_8tkc8")
+theme_override_font_sizes/font_size = 14
+text = "Test Creature"
+
+[node name="MidHMargin" type="MarginContainer" parent="Bars/TopBar"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Cost" type="MarginContainer" parent="Bars/TopBar"]
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="Bars/TopBar/Cost"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_c51mt")
+
+[node name="CenterContainer" type="CenterContainer" parent="Bars/TopBar/Cost"]
+layout_mode = 2
+
+[node name="Cost" type="Label" parent="Bars/TopBar/Cost/CenterContainer"]
+layout_mode = 2
+theme_override_fonts/font = SubResource("SystemFont_8tkc8")
+theme_override_font_sizes/font_size = 14
+text = "9
+"
+
+[node name="RightHMargin" type="MarginContainer" parent="Bars/TopBar"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+
+[node name="MidVMargin" type="MarginContainer" parent="Bars"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TypeBar" type="HBoxContainer" parent="Bars"]
+layout_mode = 2
+
+[node name="LeftHMargin" type="MarginContainer" parent="Bars/TypeBar"]
+custom_minimum_size = Vector2(35, 0)
+layout_mode = 2
+
+[node name="Type" type="MarginContainer" parent="Bars/TypeBar"]
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="Bars/TypeBar/Type"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_c51mt")
+
+[node name="CenterContainer" type="CenterContainer" parent="Bars/TypeBar/Type"]
+layout_mode = 2
+
+[node name="Type" type="Label" parent="Bars/TypeBar/Type/CenterContainer"]
+layout_mode = 2
+theme_override_fonts/font = SubResource("SystemFont_8tkc8")
+theme_override_font_sizes/font_size = 12
+text = "Creature - Human Rogue"
+
+[node name="LowerMargin" type="MarginContainer" parent="Bars"]
+custom_minimum_size = Vector2(0, 1)
+layout_mode = 2
+
+[node name="TextBar" type="HBoxContainer" parent="Bars"]
+custom_minimum_size = Vector2(0, 55)
+layout_mode = 2
+
+[node name="LeftHMargin" type="MarginContainer" parent="Bars/TextBar"]
+custom_minimum_size = Vector2(22.5, 0)
+layout_mode = 2
+
+[node name="CardText" type="MarginContainer" parent="Bars/TextBar"]
+layout_mode = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="Bars/TextBar/CardText"]
+layout_mode = 2
+
+[node name="CardText" type="Label" parent="Bars/TextBar/CardText/CenterContainer"]
+custom_minimum_size = Vector2(197.5, 55)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("SystemFont_8tkc8")
+theme_override_font_sizes/font_size = 12
+text = "When this enters the battlefield create a 1/1 noob spawn and deal 1 damage target opponent."
+autowrap_mode = 3
+
+[node name="BottomBar" type="HBoxContainer" parent="Bars"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+
+[node name="LeftHMargin" type="MarginContainer" parent="Bars/BottomBar"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Stats" type="MarginContainer" parent="Bars/BottomBar"]
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="Bars/BottomBar/Stats"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_c51mt")
+
+[node name="CenterContainer" type="CenterContainer" parent="Bars/BottomBar/Stats"]
+layout_mode = 2
+
+[node name="Stats" type="Label" parent="Bars/BottomBar/Stats/CenterContainer"]
+layout_mode = 2
+theme_override_fonts/font = SubResource("SystemFont_8tkc8")
+theme_override_font_sizes/font_size = 14
+text = "9/9"
+
+[node name="RightHMargin" type="MarginContainer" parent="Bars/BottomBar"]
+custom_minimum_size = Vector2(22.5, 0)
+layout_mode = 2
+
+[node name="BottomVMargin" type="MarginContainer" parent="Bars"]
+custom_minimum_size = Vector2(0, 17.5)
+layout_mode = 2
