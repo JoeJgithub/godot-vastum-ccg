@@ -25,9 +25,11 @@ func _ready():
 	var type: String = card_database.type_dict[str(card_data.type)]
 	var subtypes := get_subtypes(card_data, card_database.subtype_dict)
 	var modifiers := get_modifiers(card_data, card_database.modifier_dict)
+	var card_text := get_card_text(card_data, modifiers)
 	$Bars/TopBar/Name/CenterContainer/Name.text = card_name
 	$Bars/TopBar/Cost/CenterContainer/Cost.text = cost
 	$Bars/TypeBar/Type/CenterContainer/Type.text = get_type_str(type, subtypes, type_template)
+	$Bars/TextBar/CardText/CenterContainer/CardText.text = card_text
 	$Bars/BottomBar/Stats/CenterContainer/Stats.text = "%s / %s" % [attack, health]
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -41,7 +43,7 @@ func get_modifiers(data, mod_dict) -> Array[String]:
 		mods.append(mod_dict[str(id)])
 	
 	return mods
-	
+
 func get_subtypes(data, sub_dict) -> Array[String]:
 	var subs: Array[String] = []
 	for id in data.subtypes:
@@ -56,3 +58,14 @@ func get_type_str(type, subtypes, template) -> String:
 		subtype_str += subtypes[n] + ("" if n + 1 == len(subtypes) else " ")
 	
 	return template % [type, subtype_str]
+
+func get_card_text(data, modifiers: Array[String]) -> String:
+	var card_text_str := ""
+	
+	for n in range(len(modifiers)):
+		card_text_str += modifiers[n] + ("" if n + 1 == len(modifiers) else " ")
+	
+	if len(data.card_text):
+		card_text_str += (": " if len(card_text_str) else "") + data.card_text
+	
+	return card_text_str

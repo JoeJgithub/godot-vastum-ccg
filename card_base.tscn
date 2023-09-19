@@ -111,11 +111,36 @@ theme_override_font_sizes/font_size = 12
 text = "Creature - Human Rogue"
 
 [node name="LowerMargin" type="MarginContainer" parent="Bars"]
-custom_minimum_size = Vector2(0, 62.5)
+custom_minimum_size = Vector2(0, 1)
 layout_mode = 2
+
+[node name="TextBar" type="HBoxContainer" parent="Bars"]
+custom_minimum_size = Vector2(0, 55)
+layout_mode = 2
+
+[node name="LeftHMargin" type="MarginContainer" parent="Bars/TextBar"]
+custom_minimum_size = Vector2(22.5, 0)
+layout_mode = 2
+
+[node name="CardText" type="MarginContainer" parent="Bars/TextBar"]
+layout_mode = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="Bars/TextBar/CardText"]
+layout_mode = 2
+
+[node name="CardText" type="Label" parent="Bars/TextBar/CardText/CenterContainer"]
+custom_minimum_size = Vector2(197.5, 55)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("SystemFont_8tkc8")
+theme_override_font_sizes/font_size = 12
+text = "When this enters the battlefield create a 1/1 noob spawn and deal 1 damage target opponent."
+autowrap_mode = 3
 
 [node name="BottomBar" type="HBoxContainer" parent="Bars"]
 layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
 
 [node name="LeftHMargin" type="MarginContainer" parent="Bars/BottomBar"]
 layout_mode = 2
