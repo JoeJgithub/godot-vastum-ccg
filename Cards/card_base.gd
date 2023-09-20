@@ -20,7 +20,7 @@ func _ready():
 	
 	var card_name: String = card_data.name
 	var attack := str(card_data.power)
-	var health := str(card_data.health)
+	var health := str(card_data.health) 
 	var cost := str(card_data.cost)
 	var type: String = card_database.type_dict[str(card_data.type)]
 	var subtypes := get_subtypes(card_data, card_database.subtype_dict)
