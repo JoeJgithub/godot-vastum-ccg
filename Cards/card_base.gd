@@ -1,6 +1,20 @@
 extends MarginContainer
 
 
+enum state_enum {
+	InHand,
+	InPlay,
+	InMouse,
+	FocusInHand,
+	MoveDrawnCardToHand,
+	ReorganizeHand,
+}
+
+var start_pos = 0
+var target_pos = 0
+var t = 0
+var draw_time = 0.5
+var state = state_enum.InHand
 @onready var card_database = preload("res://Singletons/card_database.gd").new()
 var card = "GoblinAmbusher" # card_database.Card.keys()[card_database.Card.GoblinAmbusher]
 @onready var card_data = card_database.cards_data[card]
@@ -35,6 +49,28 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
+	
+func _physics_process(delta):
+	match state:
+		state_enum.InHand:
+			pass
+		state_enum.InPlay:
+			pass
+		state_enum.InMouse:
+			pass
+		state_enum.FocusInHand:
+			pass
+		state_enum.MoveDrawnCardToHand: # trigger deck to hand animation
+			if t <= 1: # Always be a 1
+				position = start_pos.lerp(target_pos, t)
+				t += delta/float(draw_time) # To make a longer animation delta/n
+			else:
+				position = target_pos
+				state = state_enum.InHand
+				t = 0
+		state_enum.ReorganizeHand:
+			pass
+		
 
 func get_modifiers(data, mod_dict) -> Array[String]:
 	var mods: Array[String] = []

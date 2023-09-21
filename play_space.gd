@@ -24,13 +24,17 @@ func _process(delta):
 
 func draw_from_deck():
 	var new_card = card_base.instantiate()
+	var states = new_card.state_enum
 	var card_selected = randi() % deck_size
 	new_card.card = card_list[card_selected]
+	new_card.position = $Deck.position - card_size / 2
 	# new_card.position = get_global_mouse_position()
 	oval_angle_vector = Vector2(h_rad * cos(angle), -v_rad * sin(angle))
-	new_card.position = centre_card_wheel + oval_angle_vector - new_card.size/2
+	new_card.start_pos = $Deck.position - card_size / 2
+	new_card.target_pos = centre_card_wheel + oval_angle_vector - new_card.size / 2
 	new_card.scale = card_size / new_card.size
-	new_card.rotation = (PI/2 - angle) / 4
+	new_card.rotation = (PI / 2 - angle) / 4
+	new_card.state = states.MoveDrawnCardToHand
 	$Cards.add_child(new_card)
 	card_list.erase(card_list[card_selected])
 	angle += 0.3

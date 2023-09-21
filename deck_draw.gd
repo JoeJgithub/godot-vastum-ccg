@@ -15,8 +15,18 @@ func _process(delta):
 
 
 func _gui_input(event):
-	if Input.is_action_just_released("left_click"):
-		if deck_size > 0:
-			deck_size = $'../../'.draw_from_deck()
-			if deck_size == 0:
-				disabled = true
+	if event.is_action_released("left_click"):
+		var overdrawn = draw_from_deck(1) # If an action causes you to overdraw you lose the game
+
+func draw_from_deck(n: int): # draws n cards from deck if deck_size >= n
+	if n <= 0:
+		print("You cannot draw 0 or less cards")
+		
+	if deck_size >= n:
+		deck_size = $'../../'.draw_from_deck()
+		if deck_size == 0:
+			disabled = true
+	else:
+		return false # If you draw from an empty deck you lose the game
+	
+	return true

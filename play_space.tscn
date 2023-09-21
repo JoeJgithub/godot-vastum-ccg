@@ -18,12 +18,11 @@ texture = ExtResource("2_8ep6h")
 centered = false
 
 [node name="Deck" type="Node2D" parent="."]
+position = Vector2(975, 7.5)
 
 [node name="DeckDraw" type="TextureButton" parent="Deck"]
-offset_left = 977.0
-offset_top = 9.0
-offset_right = 1457.0
-offset_bottom = 649.0
+offset_right = 480.0
+offset_bottom = 640.0
 texture_normal = ExtResource("3_tw2wp")
 texture_pressed = ExtResource("3_tw2wp")
 texture_hover = ExtResource("3_tw2wp")
