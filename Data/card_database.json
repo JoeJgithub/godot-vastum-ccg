@@ -1,6 +1,6 @@
 [
 	{
-		"id": 0,
+		"id": 1,
 		"name": "Goblin Ambusher",
 		"type": 1,
 		"subtypes": [2, 4],
@@ -12,7 +12,7 @@
 		"flavor": "",
 	},
 	{
-		"id": 1,
+		"id": 2,
 		"name": "Militiaman",
 		"type": 1,
 		"subtypes": [1, 5],
@@ -24,7 +24,7 @@
 		"flavor": "",
 	},
 	{
-		"id": 2,
+		"id": 3,
 		"name": "Blue Dragon",
 		"type": 1,
 		"subtypes": [3, 6],
@@ -33,6 +33,30 @@
 		"cost": 3,
 		"modifiers": [2],
 		"card_text": "Freeze target creature an opponent controls.",
+		"flavor": "",
+	},
+	{
+		"id": 4,
+		"name": "Goblin Scout",
+		"type": 1,
+		"subtypes": [2],
+		"power": 2,
+		"health": 1,
+		"cost": 2,
+		"modifiers": [],
+		"card_text": "",
+		"flavor": "",
+	},
+	{
+		"id": 5,
+		"name": "Goblin Brute",
+		"type": 1,
+		"subtypes": [2],
+		"power": 3,
+		"health": 4,
+		"cost": 3,
+		"modifiers": [],
+		"card_text": "",
 		"flavor": "",
 	}
 ]

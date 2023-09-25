@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://d2yhp68u6ddij"]
+[gd_scene load_steps=6 format=3 uid="uid://d2yhp68u6ddij"]
 
 [ext_resource type="Script" path="res://Cards/card_base.gd" id="1_dvbld"]
 [ext_resource type="Texture2D" uid="uid://cbuvets731vhv" path="res://Assets/Cards/Frames/default.png" id="2_7ow2n"]
+[ext_resource type="Texture2D" uid="uid://c3b2eu13nqje5" path="res://Assets/Cards/Backs/BackDefault-Rounded.png" id="3_p2fbg"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c51mt"]
 bg_color = Color(0, 0, 0, 0.588235)
@@ -169,3 +170,8 @@ layout_mode = 2
 [node name="BottomVMargin" type="MarginContainer" parent="Bars"]
 custom_minimum_size = Vector2(0, 17.5)
 layout_mode = 2
+
+[node name="CardBack" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("3_p2fbg")
+centered = false

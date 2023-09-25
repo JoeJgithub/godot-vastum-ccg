@@ -12,23 +12,28 @@ enum state_enum {
 
 var start_pos = 0
 var target_pos = 0
+var start_rot = 0
+var target_rot = 0
 var t = 0
 var draw_time = 0.5
 var state = state_enum.InHand
 @onready var card_database = preload("res://Singletons/card_database.gd").new()
-var card = "GoblinAmbusher" # card_database.Card.keys()[card_database.Card.GoblinAmbusher]
+var card = "GoblinAmbusher"
 @onready var card_data = card_database.cards_data[card]
 @onready var card_image_path = "res://Assets/Cards/Art/%s-Rounded.png" % card
+@onready var orig_scale = scale.x
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	var card_size = size
 	var card_frame = get_node("CardFrame")
 	var card_node = get_node("Card")
+	var card_back = get_node("CardBack")
 	
 	$CardFrame.scale = card_size / card_frame.texture.get_size()
 	$Card.texture = load(card_image_path)
-	$Card.scale *= card_size / card_node.texture.get_size()
+	$Card.scale = card_size / card_node.texture.get_size()
+	$CardBack.scale = card_size / card_back.texture.get_size()
 	
 	var type_template = "%s - %s"
 	
@@ -63,9 +68,14 @@ func _physics_process(delta):
 		state_enum.MoveDrawnCardToHand: # trigger deck to hand animation
 			if t <= 1: # Always be a 1
 				position = start_pos.lerp(target_pos, t)
+				rotation = start_rot * (1 - t) + target_rot * t
+				scale.x = orig_scale * abs(2 * t - 1)
+				if t >= 0.5 and $CardBack.visible:
+					$CardBack.visible = false
 				t += delta/float(draw_time) # To make a longer animation delta/n
 			else:
 				position = target_pos
+				rotation = target_rot
 				state = state_enum.InHand
 				t = 0
 		state_enum.ReorganizeHand:
