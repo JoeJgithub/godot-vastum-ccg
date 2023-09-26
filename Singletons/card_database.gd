@@ -55,9 +55,6 @@ func map_data_to_enums(data_array: Array) -> Dictionary:
 	var cards_dict := {}
 	
 	for data in data_array:
-		print(cards_dict)
-		print(data)
-		print(Card.keys())
 		cards_dict[Card.keys()[data.id - 1]] = data
 	
 	return cards_dict

@@ -16,6 +16,7 @@ var start_rot = 0
 var target_rot = 0
 var t = 0
 var draw_time = 0.5
+var organize_time = 0.25
 var state = state_enum.InHand
 @onready var card_database = preload("res://Singletons/card_database.gd").new()
 var card = "GoblinAmbusher"
@@ -66,7 +67,7 @@ func _physics_process(delta):
 		state_enum.FocusInHand:
 			pass
 		state_enum.MoveDrawnCardToHand: # trigger deck to hand animation
-			if t <= 1: # Always be a 1
+			if t <= 1:
 				position = start_pos.lerp(target_pos, t)
 				rotation = start_rot * (1 - t) + target_rot * t
 				scale.x = orig_scale * abs(2 * t - 1)
@@ -79,7 +80,15 @@ func _physics_process(delta):
 				state = state_enum.InHand
 				t = 0
 		state_enum.ReorganizeHand:
-			pass
+			if t <= 1:
+				position = start_pos.lerp(target_pos, t)
+				rotation = start_rot * (1 - t) + target_rot * t
+				t += delta/float(organize_time) # To make a longer animation delta/n
+			else:
+				position = target_pos
+				rotation = target_rot
+				state = state_enum.InHand
+				t = 0
 		
 
 func get_modifiers(data, mod_dict) -> Array[String]:
