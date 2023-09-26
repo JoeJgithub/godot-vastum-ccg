@@ -37,6 +37,8 @@ func sort_hand_placement(): # reorganize hand
 		if card.state == card.state_enum.InHand:
 			card.state = card.state_enum.ReorganizeHand
 			card.start_pos = card.position
+		elif card.state == card.state_enum.MoveDrawnCardToHand:
+			card.start_pos = card.target_pos - ((card.target_pos - card.position) / (1 - card.t))
 
 func draw_from_deck():
 	angle = PI /2 + card_spread * (float(number_cards_hand) / 2 - number_cards_hand)
